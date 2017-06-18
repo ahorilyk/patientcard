@@ -64,10 +64,11 @@ function calculate_age($birthday) {
     <input type="text" name="fname" title="Введіть Ім'я українською" placeholder="Ім'я" required>
 
     <input type="text" name="fathname" placeholder="По батькові"><br>
-    
+
   
   2. Стать <select name="sex" id="sex"><option value="чол">чол</option><option value="жін">жін</option></select><br>
-  3. Дата народження <input type="date" name="birthdate" value=""> | Вік __ р.<br>
+  3. Дата народження <input type="date" name="birthdate" value=""> | 
+  Вік <input type="text" name="age" title="Введіть кількість повних років" required size="5"> р.<br>
   4. Постійне місце проживання <input list="place" size="5" name="place"><datalist id="place"><option value="місто"><option value="село"></datalist> 
   населений пункт <input type="text" name="city" autocomplete="on">, 
   область <input list="region" size="20" name="region"><datalist id="region">

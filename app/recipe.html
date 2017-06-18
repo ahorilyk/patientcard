@@ -5,13 +5,15 @@
 	<meta name="author" content="Artem Horilyk" >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Система</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="js/main.js"></script>
 </head>
 <body>
 
 <div >
   <ul class="nav">
+  <li class="nav"><a href="index.html">Головна</a></li>
     <li class="nav"><a href="medcard.html">Картка пацієнта</a></li>
     <li class="nav"><a href="recipe.html">Листок призначень</a></li>
     <li class="nav"><a href="#">Пошук</a></li>
@@ -30,104 +32,66 @@
 		Прізвище, ім'я, по батькові пацієнта <input type="text" name="patient" size="30"> <button><i class="fa fa-search"></i></button></p>
 </div>
 
-<table>
-<tr>
-	<th width="25px">#</th>
-	<th width="200px">Призначення</th>
-	<th colspan="14">Відмітки про виконання</th>
-</tr>
-<tr>
-	<td>0</td>
-	<td>Режим</td>
-	<td>23.04<br>нд</td>
-	<td>24.04<br>пн</td>
-	<td>25.04<br>вт</td>
-	<td>26.04<br>ср</td>
-	<td>27.04<br>чт</td>
-	<td>28.04<br>пт</td>
-	<td>29.04<br>сб</td>
-	<td>30.04<br>нд</td>
-	<td>01.05<br>пн</td>
-	<td>02.05<br>пн</td>
-	<td>03.05<br>пн</td>
-	<td>04.05<br>пн</td>
-	<td>05.05<br>пн</td>
-	<td>06.05<br>пн</td>
-</tr>
-<tr>
-	<td>1</td>
-	<td><input list="drugname" size="45" placeholder="Назва лікарського засобу">
-			<datalist id="drugname">
+
+
+
+<div class="wrapper">
+	<div class="table">
+		<div class="row">
+			<div class="cell number">#</div>
+			<div class="cell drugCell">Призначення</div>
+			<div class="cell signa">Відмітки про виконання</div>
+
+		</div>
+
+		<div class="row">
+			<div class="cell number">1</div>
+			<div class="cell drugCell">Дієта</div>
+			<div class="cell signa" id="dates">
+				<!-- Cells with js-->
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="cell number">2</div>
+			<div class="cell drugCell">
+
+				<input list="drugname" class="listDrugname" placeholder="Назва лікарського засобу">
+				<datalist id="drugname1">
 				<option value="Магнію сульфат, р-н д/ін  25% амп 5 мл"></option>
 				<option value="L-лізину есцинат, р-н д/ін 0,1% амп. 5 мл"></option>
 				<option value="Клексан, р-н д/ін 2000анти-Ха МО 0,2мл шпр-доза"></option>
 				<option value="Клексан, р-н д/ін 4000анти-Ха МО 0,4мл шпр-доза"></option>
-			</datalist>
+				</datalist>
 		
-		<select name="freq">
-			<option value="1">1 раз/добу</option>
-			<option value="2">2 раз/добу</option>
-			<option value="3">3 раз/добу</option>
-			<option value="4">4 раз/добу</option>
-		</select> 
-		
-	</td>
-	<td><input type="checkbox" name="23.04.d1"><br><input type="checkbox" name="23.04.s1"></td>
-	<td><input type="checkbox" name="24.04.d1"><br><input type="checkbox" name="24.04.s1"></td>
-	<td><input type="checkbox" name="25.04.d1"><br><input type="checkbox" name="25.04.s1"></td>
-	<td><input type="checkbox" name="26.04.d1"><br><input type="checkbox" name="26.04.s1"></td>
-	<td><input type="checkbox" name="27.04.d1"><br><input type="checkbox" name="27.04.s1"></td>
-	<td><input type="checkbox" name="28.04.d1"><br><input type="checkbox" name="28.04.s1"></td>
-	<td><input type="checkbox" name="29.04.d1"><br><input type="checkbox" name="29.04.s1"></td>
-	<td><input type="checkbox" name="30.04.d1"><br><input type="checkbox" name="30.04.s1"></td>
-	<td><input type="checkbox" name="01.05.d1"><br><input type="checkbox" name="01.05.s1"></td>
-	<td><input type="checkbox" name="02.05.d1"><br><input type="checkbox" name="02.05.s1"></td>
-	<td><input type="checkbox" name="03.05.d1"><br><input type="checkbox" name="03.05.s1"></td>
-	<td><input type="checkbox" name="04.05.d1"><br><input type="checkbox" name="04.05.s1"></td>
-	<td><input type="checkbox" name="05.05.d1"><br><input type="checkbox" name="05.05.s1"></td>
-	<td><input type="checkbox" name="06.05.d1"><br><input type="checkbox" name="06.05.s1"></td>
-</tr>
+				<select name="freq">
+					<option value="1">1 раз/добу</option>
+					<option value="2">2 раз/добу</option>
+					<option value="3">3 раз/добу</option>
+					<option value="4">4 раз/добу</option>
+				</select>
+			</div>
 
-<tr>
-	<td>2</td>
-	<td><input list="drugname" size="45" placeholder="Назва лікарського засобу">
-			<datalist id="drugname">
-				<option value="Магнію сульфат, р-н д/ін  25% амп 5 мл"></option>
-				<option value="L-лізину есцинат, р-н д/ін 0,1% амп. 5 мл"></option>
-				<option value="Клексан, р-н д/ін 2000анти-Ха МО 0,2мл шпр-доза"></option>
-				<option value="Клексан, р-н д/ін 4000анти-Ха МО 0,4мл шпр-доза"></option>
-			</datalist>
-		
-		<select name="freq">
-			<option value="1">1 раз/добу</option>
-			<option value="2">2 раз/добу</option>
-			<option value="3">3 раз/добу</option>
-			<option value="4">4 раз/добу</option>
-		</select> 
-		
-	</td>
-	<td><input type="checkbox" name="23.04.d1"><br><input type="checkbox" name="23.04.s1"></td>
-	<td><input type="checkbox" name="24.04.d1"><br><input type="checkbox" name="24.04.s1"></td>
-	<td><input type="checkbox" name="25.04.d1"><br><input type="checkbox" name="25.04.s1"></td>
-	<td><input type="checkbox" name="26.04.d1"><br><input type="checkbox" name="26.04.s1"></td>
-	<td><input type="checkbox" name="27.04.d1"><br><input type="checkbox" name="27.04.s1"></td>
-	<td><input type="checkbox" name="28.04.d1"><br><input type="checkbox" name="28.04.s1"></td>
-	<td><input type="checkbox" name="29.04.d1"><br><input type="checkbox" name="29.04.s1"></td>
-	<td><input type="checkbox" name="30.04.d1"><br><input type="checkbox" name="30.04.s1"></td>
-	<td><input type="checkbox" name="01.05.d1"><br><input type="checkbox" name="01.05.s1"></td>
-	<td><input type="checkbox" name="02.05.d1"><br><input type="checkbox" name="02.05.s1"></td>
-	<td><input type="checkbox" name="03.05.d1"><br><input type="checkbox" name="03.05.s1"></td>
-	<td><input type="checkbox" name="04.05.d1"><br><input type="checkbox" name="04.05.s1"></td>
-	<td><input type="checkbox" name="05.05.d1"><br><input type="checkbox" name="05.05.s1"></td>
-	<td><input type="checkbox" name="06.05.d1"><br><input type="checkbox" name="06.05.s1"></td>
-</tr>
+			<div class="cell">
+				<div id="checks">
+					<!-- Cells with js-->
+				</div>
+				
 
-</table>
+			</div>
+		</div>
 
 
+	</div>
+
+</div>
 
 
 </form>
+<script>
+dates();
 
+</script>
 </body>
 </html>
