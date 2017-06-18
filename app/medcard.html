@@ -1,0 +1,150 @@
+<!--<?php
+error_reporting(E_ALL);
+//include("config.php");
+include("language_ua.php");
+include("header_index.php");
+
+
+function calculate_age($birthday) {
+  $birthday_timestamp = strtotime($birthday);
+  $age = date('Y') - date('Y', $birthday_timestamp);
+  if (date('md', $birthday_timestamp) > date('md')) {
+    $age--;
+  }
+  return $age;
+}
+//echo calculate_age('1990-01-01');приклад використання
+
+
+
+//////////////////////
+?>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="author" content="Artem Horilyk" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Система eлектронних лікарських призначень</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+
+
+</head>
+<body>
+
+<div >
+  <ul class="nav">
+    <li class="nav"><a href="index.html">Головна</a></li>
+    <li class="nav"><a href="medcard.html">Картка пацієнта</a></li>
+    <li class="nav"><a href="recipe.html">Листок призначень</a></li>
+    <li class="nav"><a href="#">Пошук</a></li>
+    <li class="nav"><a href="stat.html">Статистика</a></li>
+  </ul>
+</div>
+
+
+<form method="POST" name="data" action="">
+
+<div class="wrapper">
+    <div class="heading">
+
+    <h1>Медична картка стаціонарного хворого № <input type="text" name="cardnumber" id="cardnumber" class="activeinput"> <button class="greenbutton">Пошук</button> <input type="reset" class="redbutton" value="Нова карта" /> </h1>
+    </div>
+</div>
+
+<div class="wrapper">
+  <p>Госпіталізація <input type="date" name="patientindate" id="patientindate" value="" required> <input type="time" name="patientintime" value=""></p>
+
+
+  <fieldset>
+  <legend>Пацієнт: </legend>
+    
+    <input type="text" name="sname" id="sname" pattern="{А-Яа-я}(2)" title="Введіть Прізвище українською" placeholder="1. Прізвише" required>
+    <input type="text" name="fname" title="Введіть Ім'я українською" placeholder="Ім'я" required>
+
+    <input type="text" name="fathname" placeholder="По батькові"><br>
+    
+  
+  2. Стать <select name="sex" id="sex"><option value="чол">чол</option><option value="жін">жін</option></select><br>
+  3. Дата народження <input type="date" name="birthdate" value=""> | Вік __ р.<br>
+  4. Постійне місце проживання <input list="place" size="5" name="place"><datalist id="place"><option value="місто"><option value="село"></datalist> 
+  населений пункт <input type="text" name="city" autocomplete="on">, 
+  область <input list="region" size="20" name="region"><datalist id="region">
+        <option value="АР Крим"><option value="Вінницька"><option value="Волинська"><option value="Дніпропетровська">
+        <option value="Донецька"><option value="Житомирська"><option value="Закарпатська"><option value="Запорізька">
+        <option value="Івано-Франківська"><option value="Київська"><option value="Кіровоградська"><option value="Луганська">
+        <option value="Львівська"><option value="Миколаївська">
+        <option value="Одеська">
+        <option value="Полтавська">
+        <option value="Рівненська">
+        <option value="Тернопільська">
+        <option value="Харківська">
+        <option value="Херсонська">
+        <option value="Хмельницька">
+        <option value="Черкаська">
+        <option value="Чернівецька">
+        <option value="Чернігівська">
+        <option value="м. Київ">
+        <option value="м. Севастополь">
+       
+        </datalist>, 
+        адреса <input type="text"><br>
+  5. Місце роботи, спеціальність або посада <input type="text" name="job" autocomplete="on"><br>
+  6. Ким направлений хворий (назва закладу) <input type="text" name="referred" autocomplete="on"> <input type="text" placeholder="код ЄДРПОУ" name="registercode" autocomplete="on"> <br> 
+    
+  
+  
+   </fieldset>  
+
+</div>
+
+<div class="wrapper">
+  <fieldset>
+  <legend>Лікування: </legend>
+  
+  
+
+   7. Діагноз при госпіталізації <input type="text" name="firstdiagnosis" size="30"> <input type="text" placeholder="код МКХ-10" name="mkh10-1"> <br>
+   8. Госпіталізація з приводу цього захворювання в цьому році: <select name="firsttimetohospital"><option value="y">так</option><option value="n">ні</option></select>
+   8.1. Повторна госпіталізація з приводу цього захворювання до 30 днів: <select name="returntohospital30"><option value="n">ні</option><option value="y">так</option></select>
+  
+  <p>9. Виписка <input type="date" name="patientoutdate" value=""> <input type="time" name="patientoouttime" value=""></p>
+   
+   10. Діагноз заключний клінічний:<br>
+   <input type="text" name="finaldiagnosis1" size="30"> <input type="text" placeholder="код МКХ-10" name="mkh10-f1"><br>
+   <input type="text" name="finaldiagnosis2" size="30"> <input type="text" placeholder="код МКХ-10" name="mkh10-f2"><br>
+   <input type="text" name="finaldiagnosis3" size="30"> <input type="text" placeholder="код МКХ-10" name="mkh10-f3"><br>
+   <input type="text" name="finaldiagnosis4" size="30"> <input type="text" placeholder="код МКХ-10" name="mkh10-f4"><br>
+   11. Результат лікування: (а) з: <select name="treatresult">
+                                    <option value="1">1- виписаний з одужанням</option>
+                                    <option value="2">2- виписаний з поліпшенням</option>
+                                    <option value="3">3- виписаний з поліпшенням</option>
+                                    <option value="4">4- без змін</option>
+                                    <option value="5">5- помер(ла)</option>
+                                    <option value="6">6- переведений(а) до іншого закладу охорони здоров’я</option>
+                                    <option value="7">7- здоровий(а)</option>
+                                   </select>
+  </fieldset>
+
+</div>
+
+
+   
+     
+  <br> 
+<div class="center"><input type="submit" name="create" class="greenbutton" value="Зберегти дані карти пацієнта" style="width: 300px;" /></div>   
+
+
+</form>
+
+
+</body>
+</html>
+
+
+
+
+<?php
+include("footer_index.php");
+?>

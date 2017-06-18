@@ -1,0 +1,73 @@
+body{
+	font-family: $font-family;
+	background-color: ivory;
+}
+
+div.wrapper{
+	max-width: 1200px;
+	margin: auto;
+}
+
+div.flex{
+	display: flex;
+}
+
+div.flex-column{
+	display: flex;
+	flex-direction: column;
+}
+
+.centered{
+	align-items: center;
+	justify-content: center;
+}
+
+.button{
+	font-weight: bold;
+	text-align: center;
+}
+
+div.logo{
+	height: 140px;
+	background-image: url("../img/medical-it.png");
+	background-repeat: no-repeat;
+	background-position: right;
+	margin-bottom: 1rem;
+}
+
+.logo h1{
+	width: 30%;
+	height: 100%;
+	font-size: 1,5rem;
+	font-weight: bold;
+	color: $a;
+}
+
+div.button{
+	max-width: 800px;
+	width: 80%;
+	max-height: 80px;
+	height: 5rem;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+  	color: #fff;
+  	border-radius: 4px;
+  	border: 2px solid grey;
+}
+
+.button a{
+	height: 100%;
+	width: 100%;
+	padding: 2rem 0;
+	color: $a;
+}
+
+.button a:hover{
+	background-color: $a-hover;
+
+}
+
+
+div{
+	//border: 1px solid grey;
+}

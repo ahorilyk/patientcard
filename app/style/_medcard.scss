@@ -1,16 +1,3 @@
-
-body{
-	margin: 0px;
-	padding: 0px;
-	font-family: Tahoma, sans-serif;
-	background-color: ivory;
-}
-
-div{
-	border: 1px solid grey;
-}
-
-
 div.fixed{
 	position: fixed;
 	bottom: 0;
@@ -28,19 +15,22 @@ div.center{
 
 h1{
 	font-size: 1.5em;
-	color: royalblue;
+	color: $a;
 	margin: 15px 0px; 
 }
 
 .heading{
 	height: 100%;
 	margin: auto;
-	border-bottom: 1px solid grey;
 	text-align: center;
 }
 
 fieldset{
 	padding: 5px 5px 5px 25px;
+}
+
+input{
+	font-style: italic;
 }
 
 ul.nav {
@@ -80,6 +70,7 @@ li.nav a:hover{
 	text-decoration: none;
 	text-align: center;
 	color: white;
+	border-radius: 4px;
 }
 .redbutton:hover{
 	background-color: tomato;
@@ -93,6 +84,7 @@ li.nav a:hover{
 	text-decoration: none;
 	text-align: center;
 	color: white;
+	border-radius: 4px;
 }
 
 .greenbutton:hover{
